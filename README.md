@@ -1,10 +1,10 @@
-#🚀 HR WareHouse – Modern HR Data Warehouse Solution
+# 🚀HR WareHouse – Modern HR Data Warehouse Solution
 Welcome to HR WareHouse – a modern and robust data warehouse solution built to streamline and empower HR analytics! 📊
 
 🏗️ Architecture Overview
 This project follows a layered architecture inspired by best practices in data engineering:
 
-    🟤 Bronze Layer: Ingests raw HR data directly from .xlsx files, ensuring nothing is lost in translation.
+   * 🟤 Bronze Layer: Ingests raw HR data directly from .xlsx files, ensuring nothing is lost in translation.
     ⚪ Silver Layer: Transforms and cleans the raw data, handling formatting, validation, and standardization – making it analysis-ready.
     🟡 Gold Layer: Presents curated, business-friendly datasets and aggregated views to power HR decision-making.
 
