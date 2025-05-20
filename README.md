@@ -1,4 +1,4 @@
-# 🚀HR WareHouse – Modern 
+ # 🚀HR WareHouse – Modern 
 ### HR Data Warehouse Solution
 Welcome to HR WareHouse – a modern and robust data warehouse solution built to streamline and empower HR analytics! 📊
 
@@ -34,7 +34,7 @@ To make insights accessible and actionable, HR WareHouse comes with a sleek Reac
 
 #### 👨‍💻 About Me
 Hi there! I'm Anas Arshad – a passionate AI Consultant, Data Scientist, and Full-Stack Developer based in Pakistan 🇵🇰. I specialize in building intelligent systems that turn raw data into powerful insights and automation.
-   * 🌟 What I Do:
+###### _🌟 What I Do:_
    * 🧠 AI & Machine Learning Solutions
    * 🛠️ Data Engineering & ETL Pipelines
    * 📊 Business Intelligence Dashboards
