@@ -7,6 +7,8 @@ bronze.satisfied_level: Data imported from SatisfiedLevel.csv.
 Each table is loaded with CSV data that includes headers and uses commas as delimiters. After each import, a SELECT * query is used to verify the inserted data.
 
 
+TRUNCATE TABLE bronze.edu_level;
+
 COPY bronze.edu_level
 FROM 'D:/Anas Generations Work/SOFTEX/Hr/EducationalLevel/EducationLevel.csv'
 WITH (
@@ -15,7 +17,9 @@ WITH (
     DELIMITER ','
 );
 
-SELECT * FROM bronze.edu_level;
+SELECT COUNT(*) FROM bronze.edu_level;
+
+TRUNCATE TABLE bronze.employee;
 
 COPY bronze.employee
 FROM 'D:/Anas Generations Work/SOFTEX/Hr/Employee/Employee.csv'
@@ -25,7 +29,9 @@ WITH (
  DELIMITER ','
 );
 
-SELECT * FROM bronze.employee;
+SELECT COUNT(bronze.employee.EmployeeID) FROM bronze.employee;
+
+TRUNCATE TABLE bronze.performance_rating;
 
 COPY bronze.performance_rating
 FROM 'D:/Anas Generations Work/SOFTEX/Hr/PerformanceRating/PerformanceRating.csv'
@@ -35,7 +41,9 @@ WITH (
 	DELIMITER ','
 );
 
-SELECT * FROM bronze.performance_rating;
+SELECT COUNT(*) FROM bronze.performance_rating;
+
+TRUNCATE TABLE bronze.rating_level;
 
 COPY bronze.rating_level
 FROM 'D:/Anas Generations Work/SOFTEX/Hr/RatingLevel/RatingLevel.csv'
@@ -45,8 +53,9 @@ WITH (
 	DELIMITER ','
 );
 
-SELECT * FROM bronze.rating_level;
+SELECT COUNT(*) FROM bronze.rating_level;
 
+TRUNCATE TABLE bronze.satisfied_level;
 COPY bronze.satisfied_level
 FROM 'D:/Anas Generations Work/SOFTEX/Hr/SatisfiedLevel/SatisfiedLevel.csv'
 WITH (
@@ -55,4 +64,4 @@ WITH (
 	DELIMITER ','
 );
 
-SELECT * FROM bronze.satisfied_level;
+SELECT COUNT(*) FROM bronze.satisfied_level;
