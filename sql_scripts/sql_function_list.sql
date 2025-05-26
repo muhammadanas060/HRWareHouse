@@ -1,1 +1,5 @@
-SELECT load_data(); -- Load all CSVs in database
+-- Load all CSVs in database
+DO $$
+BEGIN
+	PERFORM load_data();
+END $$; 
