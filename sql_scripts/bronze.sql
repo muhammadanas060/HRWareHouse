@@ -75,3 +75,12 @@ CREATE TABLE IF NOT EXISTS bronze.satisfied_level(
 	SatisfactionLevel VARCHAR(100)
 
 )
+
+# --------------------------------- Log Table
+CREATE TABLE bronze.load_logs (
+    table_name TEXT,
+    rows_loaded INT,
+    load_time TIMESTAMP,
+    status TEXT,
+    duration INTERVAL
+);
