@@ -1,5 +1,4 @@
-ChatGPT said:
-📄 Summary of load_data() PostgreSQL Function
+# 📄 Summary of load_data() PostgreSQL Function
 This function load_data() is written in PL/pgSQL and is used to truncate and load data into five tables from local CSV files located in D:/Anas Generations Work/SOFTEX/Hr/.
 
 🔁 Function Logic:
