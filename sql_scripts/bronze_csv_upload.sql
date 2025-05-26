@@ -7,61 +7,143 @@ bronze.satisfied_level: Data imported from SatisfiedLevel.csv.
 Each table is loaded with CSV data that includes headers and uses commas as delimiters. After each import, a SELECT * query is used to verify the inserted data.
 
 
-TRUNCATE TABLE bronze.edu_level;
+DO $$
+DECLARE 
+	created_at time := clock_timestamp();
+	cnt INT;
+BEGIN
 
-COPY bronze.edu_level
-FROM 'D:/Anas Generations Work/SOFTEX/Hr/EducationalLevel/EducationLevel.csv'
-WITH (
-    FORMAT csv,
-    HEADER true,
-    DELIMITER ','
-);
+	TRUNCATE TABLE bronze.edu_level;
+	
+	COPY bronze.edu_level
+	FROM 'D:/Anas Generations Work/SOFTEX/Hr/EducationalLevel/EducationLevel.csv'
+	WITH (
+	    FORMAT csv,
+	    HEADER true,
+	    DELIMITER ','
+	);
+	
+	SELECT COUNT(*) INTO cnt FROM bronze.edu_level;
+	RAISE NOTICE '========================================================================';
+	RAISE NOTICE 'Loading';
+	RAISE NOTICE 'Running Time %',created_at;
+	RAISE NOTICE '==================== EducationLevel.csv Loaded =========================';
 
-SELECT COUNT(*) FROM bronze.edu_level;
+	EXCEPTION
+		WHEN OTHERS THEN
+			RAISE NOTICE 'File not found ';
+END $$;
 
-TRUNCATE TABLE bronze.employee;
 
-COPY bronze.employee
-FROM 'D:/Anas Generations Work/SOFTEX/Hr/Employee/Employee.csv'
-WITH (
- FORMAT csv,
- HEADER true,
- DELIMITER ','
-);
+DO $$
+DECLARE 
+		created_at time = clock_timestamp();
+		cnt INT;
 
-SELECT COUNT(bronze.employee.EmployeeID) FROM bronze.employee;
+BEGIN
+	TRUNCATE TABLE bronze.employee;
+	
+	COPY bronze.employee
+	FROM 'D:/Anas Generations Work/SOFTEX/Hr/Employee/Employee.csv'
+	WITH (
+	 FORMAT csv,
+	 HEADER true,
+	 DELIMITER ','
+	);
+	
+	SELECT COUNT(*) INTO cnt FROM bronze.employee;
+	RAISE NOTICE '========================================================================';
+	RAISE NOTICE 'Loading';
+	RAISE NOTICE 'Running Time %',created_at;
+	RAISE NOTICE '========================= Employee.csv Loaded ==========================';
 
-TRUNCATE TABLE bronze.performance_rating;
+	EXCEPTION
+		WHEN OTHERS THEN
+			RAISE NOTICE 'File not found';
 
-COPY bronze.performance_rating
-FROM 'D:/Anas Generations Work/SOFTEX/Hr/PerformanceRating/PerformanceRating.csv'
-WITH (
-	FORMAT CSV,
-	HEADER true,
-	DELIMITER ','
-);
+END $$;
 
-SELECT COUNT(*) FROM bronze.performance_rating;
+DO $$
+DECLARE 
+	created_at time = clock_timestamp();
+	cnt INT;
 
-TRUNCATE TABLE bronze.rating_level;
+BEGIN
 
-COPY bronze.rating_level
-FROM 'D:/Anas Generations Work/SOFTEX/Hr/RatingLevel/RatingLevel.csv'
-WITH (
-	FORMAT CSV,
-	HEADER true,
-	DELIMITER ','
-);
+	TRUNCATE TABLE bronze.performance_rating;
+	
+	COPY bronze.performance_rating
+	FROM 'D:/Anas Generations Work/SOFTEX/Hr/PerformanceRating/PerformanceRating.csv'
+	WITH (
+		FORMAT CSV,
+		HEADER true,
+		DELIMITER ','
+	);
+	
+	SELECT COUNT(*) INTO cnt FROM bronze.performance_rating;
+	RAISE NOTICE '========================================================================';
+	RAISE NOTICE 'Loading';
+	RAISE NOTICE 'Running Time %',created_at;
+	RAISE NOTICE '===================== PerformanceRating.csv Loaded =====================';
 
-SELECT COUNT(*) FROM bronze.rating_level;
+	EXCEPTION
+		WHEN OTHERS THEN
+			RAISE NOTICE 'File not found';
 
-TRUNCATE TABLE bronze.satisfied_level;
-COPY bronze.satisfied_level
-FROM 'D:/Anas Generations Work/SOFTEX/Hr/SatisfiedLevel/SatisfiedLevel.csv'
-WITH (
-	FORMAT CSV,
-	HEADER true,
-	DELIMITER ','
-);
+END $$;
 
-SELECT COUNT(*) FROM bronze.satisfied_level;
+DO $$
+DECLARE 
+	created_at time = clock_timestamp();
+	cnt INT;
+
+BEGIN
+	TRUNCATE TABLE bronze.rating_level;
+	
+	COPY bronze.rating_level
+	FROM 'D:/Anas Generations Work/SOFTEX/Hr/RatingLevel/RatingLevel.csv'
+	WITH (
+		FORMAT CSV,
+		HEADER true,
+		DELIMITER ','
+	);
+	
+	SELECT COUNT(*) INTO cnt FROM bronze.rating_level;
+	RAISE NOTICE '========================================================================';
+	RAISE NOTICE 'Loading';
+	RAISE NOTICE 'Running Time %',created_at;
+	RAISE NOTICE '======================== RatingLevel.csv Loaded ========================';
+
+	EXCEPTION
+		WHEN OTHERS THEN
+			RAISE NOTICE 'File not found';
+
+END $$;
+	
+DO $$
+DECLARE 
+	created_at time = clock_timestamp();
+	cnt INT;
+
+BEGIN
+	TRUNCATE TABLE bronze.satisfied_level;
+	COPY bronze.satisfied_level
+	FROM 'D:/Anas Generations Work/SOFTEX/Hr/SatisfiedLevel/SatisfiedLevel.csv'
+	WITH (
+		FORMAT CSV,
+		HEADER true,
+		DELIMITER ','
+	);
+	
+	SELECT COUNT(*) INTO cnt FROM bronze.satisfied_level;
+
+RAISE NOTICE '========================================================================';
+	RAISE NOTICE 'Loading';
+	RAISE NOTICE 'Running Time %',created_at;
+	RAISE NOTICE '==================== SatisfiedLevel.csv Loaded =====================';
+
+	EXCEPTION
+		WHEN OTHERS THEN
+			RAISE NOTICE 'File not found';
+
+END $$;
